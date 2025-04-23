@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sample News Site</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            color: #222;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ad-banner {
+            background-color: #F0E68C;
+            text-align: center;
+            /* padding: 100px; */
+        }
+
+        .topbar {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar-left {
+            justify-content: flex-start;
+        }
+
+        .topbar-right {
+            justify-content: flex-end;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo div {
+            background: #9EBC9E;
+            color: white;
+            padding: 5px 8px;
+            margin-right: 2px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-icon {
+            background-color: #f5f5f5;
+            padding: 6px 10px;
+        }
+
+        .search-icon img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .search-box {
+            border: none;
+            padding: 6px 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .auth-buttons {
+            font-size: 14px;
+        }
+
+        .auth-buttons a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .auth-buttons a.register {
+            background: black;
+            color: white;
+            padding: 6px 10px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            background-color: white;
+        }
+
+        .nav a {
+            padding: 12px 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            border-bottom: 2px solid black;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "top-left top-right"
+                "bottom-left bottom-right";
+            gap: 10px 30px;
+            padding: 40px 0;
+        }
+
+        .top-left {
+            grid-area: top-left;
+            padding-right: 30px;
+        }
+
+        .top-right {
+            grid-area: top-right;
+        }
+
+        .bottom-left {
+            grid-area: bottom-left;
+            padding-right: 30px;
+        }
+
+        .bottom-left2 {
+            grid-area: bottom-left;
+            padding-right: 640px;
+        }
+
+        .bottom-right {
+            grid-area: bottom-right;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-self: start;
+        }
+
+        .news-block img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .news-block h2 {
+            margin: 10px 0 5px;
+            font-size: 24px;
+        }
+
+        .news-block h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .news-block p {
+            margin: 0 0 10px;
+        }
+
+        .news-block h2:hover,
+        .news-block h3:hover {
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .news-block p:hover {
+            text-decoration: underline;
+            text-decoration-color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ad area -->
+    <div class="ad-banner">
+        <img src="banana.png" style="width: 50%; height: 250px; object-fit: contain;">
+    </div>
+
+    <div class="container">
+        <!-- top bar -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="search-container">
+                    <div class="search-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Search">
+                    </div>
+                    <input class="search-box" type="text" placeholder="SEARCH">
+                </div>
+            </div>
+            <div class="logo">
+                <div>NowScope</div>
+            </div>
+            <div class="topbar-right">
+                <div class="auth-buttons">
+                    <a href="#" class="register">Register</a>
+                    <a href="#">Sign In</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- list -->
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Sport</a>
+            <a href="#">Business</a>
+            <a href="#">Innovation</a>
+            <a href="#">Culture</a>
+            <a href="#">Arts</a>
+            <a href="#">Travel</a>
+            <a href="#">Earth</a>
+            <a href="#">Audio</a>
+            <a href="#">Video</a>
+            <a href="#">Live</a>
+        </div>
+
+        <!-- content -->
+        <div class="news-grid">
+            <div class="news-block top-left">
+                <h2>(Extreme Weather) Hailstorm Hits Capital</h2>
+                <img src="ExtremeWeather.png">
+                <p>An unexpected hailstorm hit the capital yesterday, damaging over 300 vehicles and injuring 12 people.
+                    Climate scientists say such events may become more frequent.</p>
+            </div>
+            <div class="news-block top-right">
+                <h3>(Street Food Boom) Market Goes Viral</h3>
+                <img src="nightmarket.png">
+                <p>A night market became a sensation after a vlogger’s video got 5M views. Business doubled in a week.
+                </p>
+            </div>
+            <div class="news-block bottom-left">
+                <br /><br /><br />
+                <h2>(Pet Cloning) Owner Clones Dog for $50,000</h2><br />
+                <img src="cloneDog.png"><br /><br />
+                <p>The cloned puppy has sparked ethical debates online.</p>
+            </div>
+            <div class="bottom-right">
+                <div class="news-block"><br />
+                    <h3>(Eco Fashion) Clothes Made of Bottles</h3>
+                    <img src="plasticClothes.png"><br /><br />
+                    <p>A local designer’s new line uses 100% recycled plastic. Environmental groups praised the move.
+                    </p>
+                </div>
+                <div class="news-block"><br />
+                    <h3>(New Law) Community Service Mandated</h3>
+                    <img src="ServiceMandated.png"><br /><br />
+                    <p>Citizens 18+ must complete one day of service annually or lose university admission points.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- black line -->
+    <hr
+        style="border: none; border-top: 2px solid black; margin-top: 40px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+
+    <!-- content2 -->
+    <div class="news-block"
+        style="display: flex; gap: 20px; align-items: stretch; max-width: 1200px; margin: 40px auto;">
+        <div style="flex: 1;">
+            <h2>(Celebrity Apology) Influencer Issues Public Apology</h2><br />
+            <p>A popular online influencer issued a public apology after being accused of cyberbullying. They announced
+                they would take a break from social media.</p>
+        </div>
+        <div style="flex: 1; position: relative;">
+            <img src="InfluencerApology.png" style="width: 100%; height: 280px; object-fit: cover; background: #eee;">
+        </div>
+    </div>
+    <hr style="border: none; border-top: 1px solid #ccc; max-width: 1200px; margin-left: auto; margin-right: auto;">
+
+    <div class="news-block" style="display: flex; max-width: 1200px; margin: 40px auto 0 auto;">
+        <div style="flex: 1; max-width: 540px; position: relative;">
+            <img src="Robots.png" style="width: 100%; height: 280px; object-fit: cover; background: #eee;">
+            <h3>(Hospital Robot) AI Robots Improve Hospital Efficiency</h3>
+            <p>A major hospital has introduced AI robots to deliver medicine and documents, improving efficiency. Some
+                staff, however, are concerned about future job security.</p>
+        </div>
+
+        <div style="width: 1px; background-color: #ccc; margin-left: 40px;"></div>
+
+        <div style="flex: 1; max-width: 270px; position: relative; padding-left: 30px;">
+            <img src="lifeguard.png" style="width: 100%; height: 200px; object-fit: cover; background: #eee;">
+            <h3>(Local Hero) Teen Saves Child From Drowning</h3><br />
+            <p>A high school student rescued a young child from drowning at a local riverbank. The mayor awarded them a
+                bravery medal, but the teen said, “I just did what anyone would do.”</p>
+        </div>
+
+        <div style="width: 0.5px; background-color: #ccc; margin-left: 30px;"></div>
+
+        <div style="max-width: 270px; padding-left: 30px;">
+            <div class="news-block">
+
+                <h3 style="margin: 0 0 10px 0; font-size: 18px;"> (Drone Delivery) Drones Deliver Groceries in Record
+                    Time </h3>
+
+                <div style="display: flex; align-items: flex-start;">
+                    <div style="flex: 1; padding-right: 10px; font-size: 16px;">
+                        <p> A supermarket chain has launched drone deliveries in two urban areas. Customers can receive
+                            groceries in under 15 minutes — weather permitting </p>
+                    </div>
+
+                    <img src="drone.png" style="width: 80px; height: 80px; object-fit: cover; background: #eee;">
+                </div>
+
+                <!-- line -->
+                <br />
+                <div style="height: 1px; background-color: #ccc; margin-top: 16px;"></div><br />
+
+                <h3 style="margin: 0 0 10px 0; font-size: 18px;"> (Fake News Panic) Salt Shortage Hoax </h3>
+
+                <div style="display: flex; align-items: flex-start;">
+                    <div style="flex: 1; padding-right: 10px; font-size: 16px;">
+                        <p> A fake online news article claiming a salt shortage caused panic buying across several
+                            cities.
+                            Authorities have denied any supply issues. </p>
+                    </div>
+
+                    <img src="fakeNews.png" style="width: 80px; height: 80px; object-fit: cover; background: #eee;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr
+        style="border: none; border-top: 2px solid black; margin-top: 40px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+
+    <div class="news-block"
+        style="display: flex; gap: 20px; align-items: stretch; max-width: 1200px; margin: 40px auto;">
+        <h2> References : </h2><br /><br />
+        <h3>
+            <a href="https://www.bbc.com/news" target="_blank">BBC</a> |
+            <a href="https://edition.cnn.com/?refresh=1" target="_blank">CNN</a> |
+            <a href="https://www.usatoday.com" target="_blank">USA Today</a> |
+            <a href="https://www.nytimes.com/international/section/world" target="_blank">The New York Times</a> |
+            <a href="https://www.npr.org/?refresh=true" target="_blank">NPR</a> |
+            <a href="https://www.wsj.com" target="_blank">WSJ</a>
+        </h3>
+    </div>
+</body>
+
+</html>
